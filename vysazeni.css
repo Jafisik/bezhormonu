@@ -1,0 +1,94 @@
+.story-preview {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.vysazeni-filter-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.vysazeni-filter-inner .cta-btn { justify-self: start; white-space: nowrap; }
+.vysazeni-filter-inner .stats-bar { display: block; justify-self: center; margin: 0; padding: 0; font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.vysazeni-filter-inner .stats-bar strong { font-size: 20px; font-weight: 700; color: var(--text); }
+.vysazeni-filter-inner #f-sort { justify-self: end; }
+.vysazeni-filter-inner .cta-short { display: none; }
+
+.vysazeni-layout .list {
+  max-width: 1000px;
+  margin: 1rem auto 3rem;
+}
+
+.vysazeni-layout .avatar {
+  display: none;
+}
+
+.vysazeni-layout .detail-section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.vysazeni-layout .lituje-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.chip-nelituji.active { background: var(--green-bg); color: var(--green); border-color: var(--green); }
+.chip-lituji.active   { background: var(--red-bg);   color: var(--red);   border-color: var(--red);   }
+.chip-smisene.active  { background: #fdf3e3;          color: #9a6700;      border-color: #f0c060;      }
+
+.b-lituje-ne      { background: var(--green-bg); color: var(--green); }
+.b-lituje-ano     { background: var(--red-bg);   color: var(--red);   }
+.b-lituje-smisene { background: #fdf3e3;          color: #9a6700;      }
+
+.vysazeni-layout .preview-full { display: none; }
+.vysazeni-layout .card:has(.detail.open) .preview-short { display: none; }
+.vysazeni-layout .card:has(.detail.open) .preview-full { display: inline; }
+
+.vysazeni-layout .card-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.vysazeni-layout .tema-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .vysazeni-layout .tema-chips,
+  .vysazeni-layout .lituje-chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .vysazeni-filter-inner {
+    grid-template-columns: auto 1fr auto;
+    gap: 6px;
+  }
+
+  .vysazeni-filter-inner .cta-full { display: none; }
+  .vysazeni-filter-inner .cta-short { display: inline; }
+  .vysazeni-filter-inner .cta-btn { font-size: 12px; padding: 8px 10px; }
+  .vysazeni-filter-inner .stats-bar { font-size: 11px; }
+  .vysazeni-filter-inner .stats-bar strong { font-size: 15px; }
+  .vysazeni-filter-inner #f-sort { font-size: 12px; padding: 8px 22px 8px 8px; }
+}

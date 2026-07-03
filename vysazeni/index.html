@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zkušenosti s vysazením hormonální antikoncepce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gynekologove.css">
+<link rel="stylesheet" href="../vysazeni.css">
+</head>
+<body>
+
+<div id="main">
+  <header>
+    <div class="header-inner">
+      <div class="logo">bez<span>hormonu</span></div>
+      <a href="https://www.instagram.com/bezhormonu" target="_blank" rel="noopener" class="ig-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@bezhormonu</a>
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="Hledat podle klíčového slova…" oninput="render()" autocomplete="off">
+      </div>
+      <button class="about-btn" id="btn-o-mne" onclick="document.getElementById('about-modal').classList.add('open')">O mně</button>
+    </div>
+  </header>
+
+  <div class="project-intro">
+    <div class="project-intro-inner">
+      <p><strong>Zkušenosti s vysazením hormonální antikoncepce</strong></p>
+      <p>Upozorňuji, že nejsem odborník a nechci Vás těmito příspěvky k něčemu nutit. </p>
+      <div class="project-intro-extra" id="project-intro-extra">
+        <p>Je na rozhodnutí každé z Vás jak se svým tělem naloží a samy musíte vědět, co je pro Vás nejlepší. Pokud máte větší zdravotní komplikace, určitě vše konzultujte se svým doktorem.</p>
+        <p>Tento profil má pouze funkci informativní a věřím, že někomu můžou tyto zkušenosti pomoct s vlastním rozhodnutím vysadit či nikoliv.</p>
+        <p><b>Ing. Magdalena Urbánková</b> <br>Bez Hormonu</p>
+      </div>
+      <button class="project-intro-toggle" id="project-intro-toggle" onclick="toggleProjectIntro()">Číst více</button>
+    </div>
+  </div>
+
+  <div id="about-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('about-modal').classList.remove('open')">&times;</button>
+      <h2>O mně</h2>
+      <p>Jmenuji se Magdalena Urbánková a jsem zakladatelkou projektu Bez Hormonu. Věnuji se tvorbě vzdělávacího obsahu o ženském zdraví, menstruačním cyklu, plodnosti, antikoncepci a sexualitě.</p>
+      <p>Mým cílem je předávat informace srozumitelně, bez strašení, zjednodušování i zbytečných tabu. Věřím, že každá žena by měla mít možnost porozumět svému tělu a dělat informovaná rozhodnutí o svém zdraví.</p>
+      <p>Kromě tvorby obsahu na sociálních sítích pořádám besedy, přednášky a spolupracuji s odborníky z oblasti gynekologie, reprodukční medicíny a dalších oborů souvisejících se ženským zdravím.</p>
+      <img src="../Bezhormonu_promo_3-3-2026_A4_SH-11.jpg" alt="Bez Hormonu" class="modal-img" loading="lazy">
+      <a href="https://www.instagram.com/bezhormonu" target="_blank" rel="noopener" class="modal-ig">Sleduj mě na Instagramu @bezhormonu</a>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-inner vysazeni-filter-inner">
+      <a href="https://docs.google.com/forms/d/1Rsvylflp9iAKqQtGBqlP5KCn0UOLpATKBwca8TxE18w/viewform" target="_blank" rel="noopener" class="cta-btn"><span class="cta-full">✏ Poděl se o svůj příběh</span><span class="cta-short">✏ Podělit se o příběh</span></a>
+      <div class="stats-bar" id="stats"></div>
+      <select id="f-sort" onchange="render()">
+        <option value="nove">Nejnovější</option>
+        <option value="stare">Nejstarší</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="layout vysazeni-layout">
+    <button class="filters-toggle-btn" id="filters-toggle-btn" onclick="toggleFiltersPanel()">
+      Témata
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="sidebar" id="sidebar-filters">
+      <button class="reset-filters-btn" onclick="resetFilters()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        Resetovat filtry
+      </button>
+      <div class="lituje-chips">
+        <button class="chip chip-nelituji" onclick="toggleChip('lituje','Nelituji')">Nelituji</button>
+        <button class="chip chip-lituji" onclick="toggleChip('lituje','Lituji')">Lituji</button>
+        <button class="chip chip-smisene" onclick="toggleChip('lituje','Smíšené')">Smíšené pocity</button>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="tema-chips" id="grp-tema">
+        <button class="chip" onclick="toggleChip('tema','Menstruace/cyklus')">Menstruace/cyklus</button>
+        <button class="chip" onclick="toggleChip('tema','Akné/pleť')">Akné/pleť</button>
+        <button class="chip" onclick="toggleChip('tema','Nálada')">Nálada</button>
+        <button class="chip" onclick="toggleChip('tema','Vlasy')">Vlasy</button>
+        <button class="chip" onclick="toggleChip('tema','Plodnost/otěhotnění')">Plodnost/otěhotnění</button>
+        <button class="chip" onclick="toggleChip('tema','Libido')">Libido</button>
+        <button class="chip" onclick="toggleChip('tema','Bolesti hlavy/migrény')">Bolesti hlavy/migrény</button>
+        <button class="chip" onclick="toggleChip('tema','Deprese')">Deprese</button>
+        <button class="chip" onclick="toggleChip('tema','Váha/hubnutí')">Váha/hubnutí</button>
+        <button class="chip" onclick="toggleChip('tema','Cysty')">Cysty</button>
+        <button class="chip" onclick="toggleChip('tema','PCOS')">PCOS</button>
+        <button class="chip" onclick="toggleChip('tema','Úzkosti')">Úzkosti</button>
+        <button class="chip" onclick="toggleChip('tema','Trombóza/srážlivost')">Trombóza/srážlivost</button>
+        <button class="chip" onclick="toggleChip('tema','Endometrióza')">Endometrióza</button>
+      </div>
+    </aside>
+    <div class="main-content">
+      <div class="list" id="list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="../vysazeni.js"></script>
+</body>
+</html>
